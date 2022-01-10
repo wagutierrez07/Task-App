@@ -1,0 +1,10 @@
+@layout('main')
+@section('content')
+        <h1>{{ task.title }}</h1>
+        <p>{{ task.body }}</p>
+        <a href="/tasks/edit/{{task.id}}" class="btn btn-primary">editar tarea</a>
+        <form action="{{'/tasks/' + task.id + '?_method=DELETE' }}" method="post">
+                {{csrfField()}}
+                <button type="submit" class="btn btn-danger">eliminar tarea</button>
+        </form>
+@endsection
